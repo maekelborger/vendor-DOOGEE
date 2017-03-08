@@ -5,7 +5,7 @@
 
 # Add proprietary binary files
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system,system)
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/common,system)
 
 PRODUCT_PACKAGES += \
 	busybox
@@ -20,20 +20,28 @@ GAPPS_FORCE_WEBVIEW_OVERRIDES := true
 GAPPS_FORCE_BROWSER_OVERRIDES := true
 
 PRODUCT_PACKAGES += \
-                    GoogleTTS \
-                    GoogleHome \
-                    CalendarGooglePrebuilt \
-                    LatinImeGoogle \
-                    Chrome \
-                    Velvet
+        GoogleTTS \
+        GoogleHome \
+        LatinImeGoogle \
+        Chrome \
+        Velvet \
+	CalendarGooglePrebuilt
 
 GAPPS_EXCLUDED_PACKAGES := \
 	Video \
 	Videos \
 	GooglePackageInstaller
 
-#	SetupWizard \
+ifneq ($(MTK_K64_SUPPORT), yes)
+WITH_DEXPREOPT := true
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/x32,system)
+else
+WITH_DEXPREOPT := false
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/x64,system)
+endif
+
 
 $(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
-
 
