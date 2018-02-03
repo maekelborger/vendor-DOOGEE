@@ -7,6 +7,9 @@
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/common,system)
 
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
+
 PRODUCT_PACKAGES += \
 	busybox
 
@@ -22,6 +25,7 @@ GAPPS_FORCE_BROWSER_OVERRIDES := true
 PRODUCT_PACKAGES += \
         GoogleTTS \
         GoogleHome \
+	PixelLauncher \
         LatinImeGoogle \
         Chrome \
         Velvet \
@@ -41,7 +45,6 @@ WITH_DEXPREOPT := false
 PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/x64,system)
 endif
-
 
 $(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
 
