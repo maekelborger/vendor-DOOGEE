@@ -46,5 +46,5 @@ PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/x64,system)
 endif
 
-$(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
+$(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)
 
