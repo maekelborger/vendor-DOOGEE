@@ -9,8 +9,11 @@ PRODUCT_COPY_FILES += \
 	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/system/common,system)
 
 PRODUCT_PACKAGES += \
-	busybox
+	busybox \
+	su
 
+#SUPERUSER_PACKAGE := ru.vpro.superuser
+SUPERUSER_EMBEDDED := true
 ########################################################
 # GAPPS apps
 GAPPS_VARIANT := pico
@@ -32,8 +35,10 @@ PRODUCT_PACKAGES += \
 GAPPS_EXCLUDED_PACKAGES := \
 	Video \
 	Videos \
-	GooglePackageInstaller \
-	SetupWizard
+	SetupWizard \
+	MtkLauncher3
+
+#	GooglePackageInstaller \
 
 ifneq ($(MTK_K64_SUPPORT), yes)
 WITH_DEXPREOPT := true
