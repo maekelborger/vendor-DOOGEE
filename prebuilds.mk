@@ -12,6 +12,8 @@ PRODUCT_PACKAGES += \
 	busybox \
 	su
 
+PRODUCT_PACKAGES += mediatek-cta
+
 #SUPERUSER_PACKAGE := ru.vpro.superuser
 SUPERUSER_EMBEDDED := true
 ########################################################
@@ -34,10 +36,11 @@ PRODUCT_PACKAGES += \
 
 GAPPS_EXCLUDED_PACKAGES := \
 	Video \
-	Videos \
-	SetupWizard \
-	MtkLauncher3
+	Videos
 
+# FOR GOOGLE GooglePackageInstaller
+# MTK_MOBILE_MANAGEMENT = no !!!!!
+#	SetupWizard \
 #	GooglePackageInstaller \
 
 ifneq ($(MTK_K64_SUPPORT), yes)
