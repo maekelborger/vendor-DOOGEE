@@ -23,13 +23,10 @@ GAPPS_FORCE_WEBVIEW_OVERRIDES := true
 GAPPS_FORCE_BROWSER_OVERRIDES := true
 
 PRODUCT_PACKAGES += \
-        GoogleTTS \
-        GoogleHome \
-	PixelLauncher \
-        LatinImeGoogle \
         Chrome \
-        Velvet \
-	CalendarGooglePrebuilt
+	CalendarGoogle \
+	Gmail \
+	Drive
 
 GAPPS_EXCLUDED_PACKAGES := \
 	Video \
